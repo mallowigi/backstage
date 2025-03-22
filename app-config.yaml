@@ -46,7 +46,7 @@ integrations:
   #   apiBaseUrl: https://ghe.example.net/api/v3
   #   token: ${GHE_TOKEN}
 
-proxy:
+#proxy:
 ### Example for how to add a proxy endpoint for the frontend.
 ### A typical reason to do this is to handle HTTPS and CORS for internal services.
 # endpoints:
@@ -75,8 +75,13 @@ auth:
       development:
         clientId: ${GITHUB_CLIENT_ID}
         clientSecret: ${GITHUB_CLIENT_SECRET}
+        signIn:
+          resolvers:
+          # Matches the GitHub username with the Backstage user entity name.
+          # See https://backstage.io/docs/auth/github/provider#resolvers for more resolvers.
+          - resolver: usernameMatchingUserEntityName
 
-scaffolder:
+#scaffolder:
 # see https://backstage.io/docs/features/software-templates/configuration for software template options
 
 catalog:
@@ -85,6 +90,15 @@ catalog:
     pullRequestBranchName: backstage-integration
   rules:
   - allow: [Component, System, API, Resource, Location]
+  providers:
+    githubOrg:
+      id: development
+      orgs: ['Backstage-I-O']
+      githubUrl: https://github.com
+      schedule:
+        initialDelay: { seconds: 30 }
+        frequency: { hours: 1 }
+        timeout: { minutes: 50 }
   locations:
   # Local example data, file locations are relative to the backend process, typically `packages/backend`
   - type: file
@@ -115,7 +129,7 @@ catalog:
   # New adopters are encouraged to enable it as this behavior will be the default in a future release.
   useUrlReadersSearch: true
 
-kubernetes:
+#kubernetes:
 # see https://backstage.io/docs/features/kubernetes/configuration for kubernetes configuration options
 
 # see https://backstage.io/docs/permissions/getting-started for more on the permission framework
