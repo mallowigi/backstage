@@ -93,7 +93,6 @@ catalog:
   providers:
     githubOrg:
       id: development
-      orgs: ['Backstage-I-O']
       githubUrl: https://github.com
       schedule:
         initialDelay: { seconds: 30 }

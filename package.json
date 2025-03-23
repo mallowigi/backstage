@@ -7,9 +7,9 @@
   },
   "scripts": {
     "dev": "dotenvx run -- yarn workspaces foreach -A --include backend --include app --parallel --jobs unlimited -v -i run start",
-    "start": "yarn workspace app start",
-    "start-backend": "yarn workspace backend start",
-    "build:backend": "yarn workspace backend build",
+    "start": "dotenvx run -- yarn workspace app start",
+    "start-backend": "dotenvx run -- yarn workspace backend start",
+    "build:backend": "dotenvx run -- yarn workspace backend build",
     "build:all": "backstage-cli repo build --all",
     "build-image": "yarn workspace backend build-image",
     "tsc": "tsc",
