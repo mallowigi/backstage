@@ -12,6 +12,12 @@ import { authProvidersExtensionPoint, createOAuthProviderFactory } from '@backst
 import { DEFAULT_NAMESPACE, stringifyEntityRef } from '@backstage/catalog-model';
 import { oidcAuthenticator } from '@backstage/plugin-auth-backend-module-oidc-provider';
 
+import {
+  GroupTransformer,
+  keycloakTransformerExtensionPoint,
+  UserTransformer,
+} from '@backstage-community/plugin-catalog-backend-module-keycloak';
+
 const kcAuthProviderModule = createBackendModule({
   // This ID must be exactly "auth" because that's the plugin it targets
   pluginId: 'auth',
@@ -46,6 +52,45 @@ const kcAuthProviderModule = createBackendModule({
             },
           }),
         });
+      },
+    });
+  },
+});
+
+const customGroupTransformer: GroupTransformer = async (
+  entity,
+  _user,
+  _realm,
+) => {
+  entity.metadata.name = _realm;
+  return entity;
+};
+const customUserTransformer: UserTransformer = async (entity, user, realm) => {
+  entity.metadata.name = entity.metadata.name.replaceAll(/[+@/\|]/g, '-');
+  entity.spec.profile = {
+    displayName:
+      user.firstName && user.lastName
+        ? `${user.firstName} ${user.lastName}`
+        : user.email,
+    email: user.email,
+    picture: user.attributes?.profile_picture[0],
+  };
+  entity.spec.memberOf = [realm];
+  return entity;
+};
+/* highlight-add-end */
+
+export const keycloakBackendModuleTransformer = createBackendModule({
+  pluginId: 'catalog',
+  moduleId: 'keycloak-transformer',
+  register(reg) {
+    reg.registerInit({
+      deps: {
+        keycloak: keycloakTransformerExtensionPoint,
+      },
+      async init({ keycloak }) {
+        keycloak.setUserTransformer(customUserTransformer);
+        keycloak.setGroupTransformer(customGroupTransformer);
       },
     });
   },
@@ -102,5 +147,6 @@ backend.add(kcAuthProviderModule);
 backend.add(
   import('@backstage-community/plugin-catalog-backend-module-keycloak'),
 );
+backend.add(keycloakBackendModuleTransformer);
 
 backend.start();
