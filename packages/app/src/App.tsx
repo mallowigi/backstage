@@ -37,6 +37,10 @@ import { githubAuthApiRef } from '@backstage/core-plugin-api';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
 import { CatalogGraphPage } from '@backstage/plugin-catalog-graph';
 import { RequirePermission } from '@backstage/plugin-permission-react';
+import { TechRadarPage } from '@backstage-community/plugin-tech-radar';
+import LightIcon from '@material-ui/icons/WbSunny';
+import { UnifiedThemeProvider } from '@backstage/theme';
+import { moonlight } from './theme/moonlight.ts';
 
 const app = createApp({
   apis,
@@ -71,6 +75,17 @@ const app = createApp({
       />
     ),
   },
+  themes: [
+    {
+      id: 'moonlight',
+      title: 'Moonlight',
+      variant: 'dark',
+      icon: <LightIcon />,
+      Provider: ({ children }) => (
+        <UnifiedThemeProvider theme={moonlight} children={children} />
+      ),
+    },
+  ],
 });
 
 const routes = (
@@ -107,6 +122,10 @@ const routes = (
     </Route>
     <Route path="/settings" element={<UserSettingsPage />} />
     <Route path="/catalog-graph" element={<CatalogGraphPage />} />
+    <Route
+      path="/tech-radar"
+      element={<TechRadarPage width={1500} height={800} />}
+    />
   </FlatRoutes>
 );
 
