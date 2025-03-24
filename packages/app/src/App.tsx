@@ -33,7 +33,12 @@ import {
   OAuthRequestDialog,
   SignInPage,
 } from '@backstage/core-components';
-import { githubAuthApiRef } from '@backstage/core-plugin-api';
+import {
+  configApiRef,
+  githubAuthApiRef,
+  googleAuthApiRef,
+  useApi,
+} from '@backstage/core-plugin-api';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
 import { CatalogGraphPage } from '@backstage/plugin-catalog-graph';
 import { RequirePermission } from '@backstage/plugin-permission-react';
@@ -43,6 +48,20 @@ import { UnifiedThemeProvider } from '@backstage/theme';
 import { moonlight } from './theme/moonlight.ts';
 import { HomePage } from './components/home/HomePage.tsx';
 import { HomepageCompositionRoot } from '@backstage/plugin-home';
+
+const githubProvider = {
+  id: 'github-auth-provider',
+  title: 'GitHub',
+  message: 'Sign in with GitHub.',
+  apiRef: githubAuthApiRef,
+};
+
+const googleProvider = {
+  id: 'google-auth-provider',
+  title: 'Google',
+  message: 'Sign in using Google.',
+  apiRef: googleAuthApiRef,
+};
 
 const app = createApp({
   apis,
@@ -64,18 +83,23 @@ const app = createApp({
     });
   },
   components: {
-    SignInPage: props => (
-      <SignInPage
-        {...props}
-        auto
-        provider={{
-          id: 'github-auth-provider',
-          title: 'GitHub',
-          message: 'Sign in with GitHub',
-          apiRef: githubAuthApiRef,
-        }}
-      />
-    ),
+    SignInPage: props => {
+      const configApi = useApi(configApiRef);
+
+      if (configApi.getString('auth.environment') === 'development') {
+        return (
+          <SignInPage
+            {...props}
+            auto
+            providers={['guest', githubProvider, googleProvider]}
+          />
+        );
+      }
+
+      return (
+        <SignInPage {...props} providers={[githubProvider, googleProvider]} />
+      );
+    },
   },
   themes: [
     {

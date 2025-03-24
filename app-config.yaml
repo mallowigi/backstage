@@ -80,6 +80,15 @@ auth:
           # Matches the GitHub username with the Backstage user entity name.
           # See https://backstage.io/docs/auth/github/provider#resolvers for more resolvers.
           - resolver: usernameMatchingUserEntityName
+    google:
+      development:
+        clientId: ${GOOGLE_CLIENT_ID}
+        clientSecret: ${GOOGLE_CLIENT_SECRET}
+        signIn:
+          resolvers:
+          # Matches the Google email with the Backstage user entity name.
+          # See https://backstage.io/docs/auth/google/provider#resolvers for more resolvers.
+          - resolver: emailMatchingUserEntityAnnotation
 
 #scaffolder:
 # see https://backstage.io/docs/features/software-templates/configuration for software template options
