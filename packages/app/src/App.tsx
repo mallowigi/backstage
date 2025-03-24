@@ -21,7 +21,7 @@ import { TechDocsAddons } from '@backstage/plugin-techdocs-react';
 import { UserSettingsPage } from '@backstage/plugin-user-settings';
 import React from 'react';
 import { Route } from 'react-router-dom';
-import { apis } from './apis';
+import { apis, kcOIDCAuthApiRef } from './apis';
 import { Root } from './components/Root';
 import { entityPage } from './components/catalog/EntityPage';
 import { searchPage } from './components/search/SearchPage';
@@ -32,6 +32,7 @@ import {
   AlertDisplay,
   OAuthRequestDialog,
   SignInPage,
+  SignInProviderConfig,
 } from '@backstage/core-components';
 import {
   configApiRef,
@@ -63,6 +64,13 @@ const googleProvider = {
   apiRef: googleAuthApiRef,
 };
 
+const keycloakProvider: SignInProviderConfig = {
+  id: 'keycloak',
+  title: 'Keycloak',
+  message: 'Sign in using Keycloak',
+  apiRef: kcOIDCAuthApiRef,
+};
+
 const app = createApp({
   apis,
   bindRoutes({ bind }) {
@@ -91,7 +99,12 @@ const app = createApp({
           <SignInPage
             {...props}
             auto
-            providers={['guest', githubProvider, googleProvider]}
+            providers={[
+              'guest',
+              githubProvider,
+              googleProvider,
+              keycloakProvider,
+            ]}
           />
         );
       }

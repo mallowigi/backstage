@@ -68,6 +68,8 @@ techdocs:
 auth:
   # see https://backstage.io/docs/auth/ to learn about auth providers
   environment: development
+  session:
+    secret: supersecretcookie
   providers:
     # See https://backstage.io/docs/auth/guest/provider
     guest: { }
@@ -89,6 +91,12 @@ auth:
           # Matches the Google email with the Backstage user entity name.
           # See https://backstage.io/docs/auth/google/provider#resolvers for more resolvers.
           - resolver: emailMatchingUserEntityAnnotation
+    keycloak:
+      development:
+        metadataUrl: ${KEYCLOAK_HOST}/realms/${KEYCLOAK_REALM}/.well-known/openid-configuration
+        clientId: ${KEYCLOAK_CLIENT_ID}
+        clientSecret: ${KEYCLOAK_CLIENT_SECRET}
+        prompt: auto
 
 #scaffolder:
 # see https://backstage.io/docs/features/software-templates/configuration for software template options
@@ -104,9 +112,20 @@ catalog:
       id: development
       githubUrl: https://github.com
       schedule:
-        initialDelay: { seconds: 30 }
-        frequency: { hours: 1 }
-        timeout: { minutes: 50 }
+        frequency: { minutes: 30 }
+        timeout: { minutes: 3 }
+    keycloakOrg:
+      default:
+        baseUrl: ${KEYCLOAK_HOST}
+        loginRealm: ${KEYCLOAK_REALM}
+        realm: ${KEYCLOAK_REALM}
+        clientId: ${KEYCLOAK_CLIENT_ID}
+        clientSecret: ${KEYCLOAK_CLIENT_SECRET}
+        schedule: # Optional (defaults to the configurations below if not provided); same options as in TaskScheduleDefinition
+          # supports cron, ISO duration, "human duration" as used in code
+          frequency: { minutes: 30 } # Customize this to fit your needs
+          # supports ISO duration, "human duration" as used in code
+          timeout: { minutes: 3 } # Customize this to fit your needs
   locations:
   # Local example data, file locations are relative to the backend process, typically `packages/backend`
   - type: file
