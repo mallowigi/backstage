@@ -20,7 +20,7 @@ import { ReportIssue } from '@backstage/plugin-techdocs-module-addons-contrib';
 import { TechDocsAddons } from '@backstage/plugin-techdocs-react';
 import { UserSettingsPage } from '@backstage/plugin-user-settings';
 import React from 'react';
-import { Navigate, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { apis } from './apis';
 import { Root } from './components/Root';
 import { entityPage } from './components/catalog/EntityPage';
@@ -41,6 +41,8 @@ import { TechRadarPage } from '@backstage-community/plugin-tech-radar';
 import LightIcon from '@material-ui/icons/WbSunny';
 import { UnifiedThemeProvider } from '@backstage/theme';
 import { moonlight } from './theme/moonlight.ts';
+import { HomePage } from './components/home/HomePage.tsx';
+import { HomepageCompositionRoot } from '@backstage/plugin-home';
 
 const app = createApp({
   apis,
@@ -90,7 +92,9 @@ const app = createApp({
 
 const routes = (
   <FlatRoutes>
-    <Route path="/" element={<Navigate to="catalog" />} />
+    <Route path="/" element={<HomepageCompositionRoot />}>
+      <HomePage />
+    </Route>
     <Route path="/catalog" element={<CatalogIndexPage />} />
     <Route
       path="/catalog/:namespace/:kind/:name"

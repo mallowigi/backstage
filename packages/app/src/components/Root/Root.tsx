@@ -31,6 +31,7 @@ import { MyGroupsSidebarItem } from '@backstage/plugin-org';
 import GroupIcon from '@material-ui/icons/People';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { useApp } from '@backstage/core-plugin-api';
+import CategoryIcon from '@material-ui/icons/Category';
 
 const useSidebarLogoStyles = makeStyles({
   root: {
@@ -64,13 +65,17 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
   <SidebarPage>
     <Sidebar>
       <SidebarLogo />
+
       <SidebarGroup label="Search" icon={<SearchIcon />} to="/search">
         <SidebarSearchModal />
       </SidebarGroup>
+
       <SidebarDivider />
+
       <SidebarGroup label="Menu" icon={<MenuIcon />}>
-        {/* Global nav, not org-specific */}
-        <SidebarItem icon={HomeIcon} to="catalog" text="Home">
+        <SidebarItem icon={HomeIcon} to="/" text="Home" />
+
+        <SidebarItem icon={CategoryIcon} to="catalog" text="Catalog">
           <SidebarSubmenu title="Catalog">
             <SidebarSubmenuItem
               title="Domains"
@@ -111,23 +116,32 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
             />
           </SidebarSubmenu>
         </SidebarItem>
+
         <MyGroupsSidebarItem
           singularTitle="My Group"
           pluralTitle="My Groups"
           icon={GroupIcon}
         />
+
         <SidebarItem icon={ExtensionIcon} to="api-docs" text="APIs" />
+
         <SidebarItem icon={LibraryBooks} to="docs" text="Docs" />
+
         <SidebarItem icon={AccountCircle} to="tech-radar" text="Tech Radar" />
+
         <SidebarItem icon={CreateComponentIcon} to="create" text="Create..." />
-        {/* End global nav */}
+
         <SidebarDivider />
+
         <SidebarScrollWrapper>
           {/* Items in this group will be scrollable if they run out of space */}
         </SidebarScrollWrapper>
       </SidebarGroup>
+
       <SidebarSpace />
+
       <SidebarDivider />
+
       <SidebarGroup
         label="Settings"
         icon={<UserSettingsSignInAvatar />}
