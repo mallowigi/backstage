@@ -1,9 +1,9 @@
 app:
-  title: Scaffolded Backstage App
+  title: Dynamic Yield Backstage
   baseUrl: http://localhost:3000
 
 organization:
-  name: My Company
+  name: Dynamic Yield
 
 backend:
   # Used for enabling authentication, secret is shared by all backend plugins
@@ -156,10 +156,36 @@ catalog:
   # New adopters are encouraged to enable it as this behavior will be the default in a future release.
   useUrlReadersSearch: true
 
-#kubernetes:
-# see https://backstage.io/docs/features/kubernetes/configuration for kubernetes configuration options
-
 # see https://backstage.io/docs/permissions/getting-started for more on the permission framework
 permission:
   # setting this to `false` will disable permissions
   enabled: true
+
+aws:
+  mainAccount:
+    region: 'us-east-1'
+    profile: 'frontend'
+    #accessKeyId: ${AWS_ACCESS_KEY_ID}
+    #secretAccessKey: ${AWS_SECRET_ACCESS_KEY}
+
+# see https://backstage.io/docs/features/kubernetes/configuration for kubernetes configuration options
+kubernetes:
+  frontend:
+    podDelete:
+      enabled: true
+  serviceLocatorMethod:
+    type: multiTenant
+  clusterLocatorMethods:
+  - type: config
+    clusters:
+    - url: ${EKS_URL}
+      name: us-east-1:frontend:cluster/dev
+      region: 'us-east-1'
+      accountId: '884661243007'
+      authProvider: aws
+      title: 'Frontend Dev'
+      caData: ${CA_DATA}
+      authMetadata:
+        #kubernetes.io/aws-assume-role: arn:aws:iam::884661243007:role/dy-role/dev-use1-frontend-utils-secrets
+        #  #kubernetes.io/aws-external-id: ${ID_FROM_AWS_ADMIN}
+        kubernetes.io/x-k8s-aws-id: dev

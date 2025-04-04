@@ -11,7 +11,10 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: example-website
+  name: adm-server
+  namespace: frontend
+  annotations:
+    'backstage.io/kubernetes-label-selector': 'app=adm-server'
 spec:
   type: website
   lifecycle: experimental
