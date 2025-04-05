@@ -15,8 +15,6 @@ backend:
   baseUrl: http://localhost:7007
   listen:
     port: 7007
-    # Uncomment the following host directive to bind to specific interfaces
-    # host: 127.0.0.1
   csp:
     connect-src: ["'self'", 'http:', 'https:']
     # Content-Security-Policy directives follow the Helmet format: https://helmetjs.github.io/#reference
@@ -25,8 +23,6 @@ backend:
     origin: http://localhost:3000
     methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
     credentials: true
-  # This is for local development only, it is not recommended to use this in production
-  # The production database configuration is stored in app-config.production.yaml
   database:
     client: pg
     connection:
@@ -38,8 +34,6 @@ backend:
 integrations:
   github:
   - host: github.com
-    # This is a Personal Access Token or PAT from GitHub. You can find out how to generate this token, and more information
-    # about setting up the GitHub integration here: https://backstage.io/docs/integrations/github/locations#configuration
     token: ${GITHUB_TOKEN}
   ### Example for how to add your GitHub Enterprise instance using the API:
   # - host: ghe.example.net
@@ -66,7 +60,6 @@ techdocs:
     type: 'local' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
 
 auth:
-  # see https://backstage.io/docs/auth/ to learn about auth providers
   environment: development
   session:
     secret: supersecretcookie
@@ -79,8 +72,6 @@ auth:
         clientSecret: ${GITHUB_CLIENT_SECRET}
         signIn:
           resolvers:
-          # Matches the GitHub username with the Backstage user entity name.
-          # See https://backstage.io/docs/auth/github/provider#resolvers for more resolvers.
           - resolver: usernameMatchingUserEntityName
     google:
       development:
@@ -88,8 +79,6 @@ auth:
         clientSecret: ${GOOGLE_CLIENT_SECRET}
         signIn:
           resolvers:
-          # Matches the Google email with the Backstage user entity name.
-          # See https://backstage.io/docs/auth/google/provider#resolvers for more resolvers.
           - resolver: emailMatchingUserEntityAnnotation
     keycloak:
       development:
