@@ -50,10 +50,11 @@ backend.add(import('@backstage/plugin-search-backend-module-techdocs'));
 backend.add(import('@backstage/plugin-kubernetes-backend'));
 
 // keycloak
-backend.add(kcAuthProviderModule);
-backend.add(
-  import('@backstage-community/plugin-catalog-backend-module-keycloak'),
-);
-backend.add(keycloakBackendModuleTransformer);
-
+if (process.env.KEYCLOAK_ENABLED === 'true') {
+  backend.add(kcAuthProviderModule);
+  backend.add(
+    import('@backstage-community/plugin-catalog-backend-module-keycloak'),
+  );
+  backend.add(keycloakBackendModuleTransformer);
+}
 backend.start();
