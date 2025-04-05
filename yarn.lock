@@ -3607,6 +3607,141 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@backstage/cli@npm:^0.31.1":
+  version: 0.31.1
+  resolution: "@backstage/cli@npm:0.31.1"
+  dependencies:
+    "@backstage/catalog-model": "npm:^1.7.3"
+    "@backstage/cli-common": "npm:^0.1.15"
+    "@backstage/cli-node": "npm:^0.2.13"
+    "@backstage/config": "npm:^1.3.2"
+    "@backstage/config-loader": "npm:^1.10.0"
+    "@backstage/errors": "npm:^1.2.7"
+    "@backstage/eslint-plugin": "npm:^0.1.10"
+    "@backstage/integration": "npm:^1.16.2"
+    "@backstage/release-manifests": "npm:^0.0.12"
+    "@backstage/types": "npm:^1.2.1"
+    "@manypkg/get-packages": "npm:^1.1.3"
+    "@module-federation/enhanced": "npm:^0.8.0"
+    "@octokit/graphql": "npm:^5.0.0"
+    "@octokit/graphql-schema": "npm:^13.7.0"
+    "@octokit/oauth-app": "npm:^4.2.0"
+    "@octokit/request": "npm:^6.0.0"
+    "@pmmmwh/react-refresh-webpack-plugin": "npm:^0.5.7"
+    "@rollup/plugin-commonjs": "npm:^26.0.0"
+    "@rollup/plugin-json": "npm:^6.0.0"
+    "@rollup/plugin-node-resolve": "npm:^15.0.0"
+    "@rollup/plugin-yaml": "npm:^4.0.0"
+    "@spotify/eslint-config-base": "npm:^15.0.0"
+    "@spotify/eslint-config-react": "npm:^15.0.0"
+    "@spotify/eslint-config-typescript": "npm:^15.0.0"
+    "@sucrase/webpack-loader": "npm:^2.0.0"
+    "@svgr/core": "npm:6.5.x"
+    "@svgr/plugin-jsx": "npm:6.5.x"
+    "@svgr/plugin-svgo": "npm:6.5.x"
+    "@svgr/rollup": "npm:6.5.x"
+    "@svgr/webpack": "npm:6.5.x"
+    "@swc/core": "npm:^1.3.46"
+    "@swc/helpers": "npm:^0.5.0"
+    "@swc/jest": "npm:^0.2.22"
+    "@types/jest": "npm:^29.5.11"
+    "@types/webpack-env": "npm:^1.15.2"
+    "@typescript-eslint/eslint-plugin": "npm:^8.17.0"
+    "@typescript-eslint/parser": "npm:^8.16.0"
+    "@yarnpkg/lockfile": "npm:^1.1.0"
+    "@yarnpkg/parsers": "npm:^3.0.0"
+    bfj: "npm:^8.0.0"
+    buffer: "npm:^6.0.3"
+    chalk: "npm:^4.0.0"
+    chokidar: "npm:^3.3.1"
+    commander: "npm:^12.0.0"
+    cross-fetch: "npm:^4.0.0"
+    cross-spawn: "npm:^7.0.3"
+    css-loader: "npm:^6.5.1"
+    ctrlc-windows: "npm:^2.1.0"
+    esbuild: "npm:^0.25.0"
+    esbuild-loader: "npm:^4.0.0"
+    eslint: "npm:^8.6.0"
+    eslint-config-prettier: "npm:^9.0.0"
+    eslint-formatter-friendly: "npm:^7.0.0"
+    eslint-plugin-deprecation: "npm:^3.0.0"
+    eslint-plugin-import: "npm:^2.31.0"
+    eslint-plugin-jest: "npm:^28.9.0"
+    eslint-plugin-jsx-a11y: "npm:^6.10.2"
+    eslint-plugin-react: "npm:^7.37.2"
+    eslint-plugin-react-hooks: "npm:^5.0.0"
+    eslint-plugin-unused-imports: "npm:^4.1.4"
+    eslint-webpack-plugin: "npm:^4.2.0"
+    express: "npm:^4.17.1"
+    fork-ts-checker-webpack-plugin: "npm:^9.0.0"
+    fs-extra: "npm:^11.2.0"
+    git-url-parse: "npm:^15.0.0"
+    glob: "npm:^7.1.7"
+    global-agent: "npm:^3.0.0"
+    globby: "npm:^11.1.0"
+    handlebars: "npm:^4.7.3"
+    html-webpack-plugin: "npm:^5.6.3"
+    inquirer: "npm:^8.2.0"
+    jest: "npm:^29.7.0"
+    jest-cli: "npm:^29.7.0"
+    jest-css-modules: "npm:^2.1.0"
+    jest-environment-jsdom: "npm:^29.0.2"
+    jest-runtime: "npm:^29.0.2"
+    json-schema: "npm:^0.4.0"
+    lodash: "npm:^4.17.21"
+    mini-css-extract-plugin: "npm:^2.4.2"
+    minimatch: "npm:^9.0.0"
+    node-stdlib-browser: "npm:^1.3.1"
+    npm-packlist: "npm:^5.0.0"
+    ora: "npm:^5.3.0"
+    p-queue: "npm:^6.6.2"
+    pirates: "npm:^4.0.6"
+    postcss: "npm:^8.1.0"
+    process: "npm:^0.11.10"
+    raw-loader: "npm:^4.0.2"
+    react-dev-utils: "npm:^12.0.0-next.60"
+    react-refresh: "npm:^0.14.0"
+    recursive-readdir: "npm:^2.2.2"
+    replace-in-file: "npm:^7.1.0"
+    rollup: "npm:^4.27.3"
+    rollup-plugin-dts: "npm:^6.1.0"
+    rollup-plugin-esbuild: "npm:^6.1.1"
+    rollup-plugin-postcss: "npm:^4.0.0"
+    rollup-pluginutils: "npm:^2.8.2"
+    semver: "npm:^7.5.3"
+    style-loader: "npm:^3.3.1"
+    sucrase: "npm:^3.20.2"
+    swc-loader: "npm:^0.2.3"
+    tar: "npm:^6.1.12"
+    terser-webpack-plugin: "npm:^5.1.3"
+    ts-morph: "npm:^24.0.0"
+    undici: "npm:^7.2.3"
+    util: "npm:^0.12.3"
+    webpack: "npm:^5.94.0"
+    webpack-dev-server: "npm:^5.0.0"
+    yaml: "npm:^2.0.0"
+    yargs: "npm:^16.2.0"
+    yml-loader: "npm:^2.1.0"
+    yn: "npm:^4.0.0"
+    zod: "npm:^3.22.4"
+    zod-validation-error: "npm:^3.4.0"
+  peerDependencies:
+    "@rspack/core": ^1.0.10
+    "@rspack/dev-server": ^1.0.9
+    "@rspack/plugin-react-refresh": ^1.0.0
+  peerDependenciesMeta:
+    "@rspack/core":
+      optional: true
+    "@rspack/dev-server":
+      optional: true
+    "@rspack/plugin-react-refresh":
+      optional: true
+  bin:
+    backstage-cli: bin/backstage-cli
+  checksum: 10c0/7e5883f040eb8221842aaccfb41f0089b770678e8d6f8e2a53115a6e7c8e509251df62c6dbf1b68154c143b845f0ddb4bb41ad43ca05cf0db7b1668bbf9f080f
+  languageName: node
+  linkType: hard
+
 "@backstage/config-loader@npm:^1.10.0, @backstage/config-loader@npm:^1.8.0, @backstage/config-loader@npm:^1.8.1, @backstage/config-loader@npm:^1.9.1":
   version: 1.10.0
   resolution: "@backstage/config-loader@npm:1.10.0"
@@ -6402,9 +6537,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/dotenvx@npm:^1.39.0":
-  version: 1.39.0
-  resolution: "@dotenvx/dotenvx@npm:1.39.0"
+"@dotenvx/dotenvx@npm:^1.39.1":
+  version: 1.39.1
+  resolution: "@dotenvx/dotenvx@npm:1.39.1"
   dependencies:
     commander: "npm:^11.1.0"
     dotenv: "npm:^16.4.5"
@@ -6418,7 +6553,7 @@ __metadata:
   bin:
     dotenvx: src/cli/dotenvx.js
     git-dotenvx: src/cli/dotenvx.js
-  checksum: 10c0/a45879c2071b8905f24f0f9c92453ab584babde2796492e16cb88673bb3cec294b9ad5a68f74e4c23d2a8bcb73ef037eb334953cbeca10be8099574092642a44
+  checksum: 10c0/f108cac020a25902efcae12fd9e6c1082b6f24e6707e4020ad0cb7dcdbad183462cd83c9a8336f4926e1ac76b0260b24df5ab38001f68c03057b2eb654b1a74b
   languageName: node
   linkType: hard
 
@@ -25862,7 +25997,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-gyp@npm:^11.1.0, node-gyp@npm:latest":
+"node-gyp@npm:^11.2.0":
+  version: 11.2.0
+  resolution: "node-gyp@npm:11.2.0"
+  dependencies:
+    env-paths: "npm:^2.2.0"
+    exponential-backoff: "npm:^3.1.1"
+    graceful-fs: "npm:^4.2.6"
+    make-fetch-happen: "npm:^14.0.3"
+    nopt: "npm:^8.0.0"
+    proc-log: "npm:^5.0.0"
+    semver: "npm:^7.3.5"
+    tar: "npm:^7.4.3"
+    tinyglobby: "npm:^0.2.12"
+    which: "npm:^5.0.0"
+  bin:
+    node-gyp: bin/node-gyp.js
+  checksum: 10c0/bd8d8c76b06be761239b0c8680f655f6a6e90b48e44d43415b11c16f7e8c15be346fba0cbf71588c7cdfb52c419d928a7d3db353afc1d952d19756237d8f10b9
+  languageName: node
+  linkType: hard
+
+"node-gyp@npm:latest":
   version: 11.1.0
   resolution: "node-gyp@npm:11.1.0"
   dependencies:
@@ -29685,14 +29840,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root@workspace:."
   dependencies:
-    "@backstage/cli": "npm:^0.31.0"
+    "@backstage/cli": "npm:^0.31.1"
     "@backstage/e2e-test-utils": "npm:^0.1.1"
     "@biomejs/biome": "npm:^1.9.4"
-    "@dotenvx/dotenvx": "npm:^1.39.0"
+    "@dotenvx/dotenvx": "npm:^1.39.1"
     "@playwright/test": "npm:^1.51.1"
-    node-gyp: "npm:^11.1.0"
+    node-gyp: "npm:^11.2.0"
     prettier: "npm:^3.5.3"
-    typescript: "npm:~5.8.2"
+    typescript: "npm:~5.8.3"
   languageName: unknown
   linkType: soft
 
@@ -31568,7 +31723,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tinyglobby@npm:^0.2.9":
+"tinyglobby@npm:^0.2.12, tinyglobby@npm:^0.2.9":
   version: 0.2.12
   resolution: "tinyglobby@npm:0.2.12"
   dependencies:
@@ -32132,13 +32287,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:~5.8.2":
-  version: 5.8.2
-  resolution: "typescript@npm:5.8.2"
+"typescript@npm:~5.8.3":
+  version: 5.8.3
+  resolution: "typescript@npm:5.8.3"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/5c4f6fbf1c6389b6928fe7b8fcd5dc73bb2d58cd4e3883f1d774ed5bd83b151cbac6b7ecf11723de56d4676daeba8713894b1e9af56174f2f9780ae7848ec3c6
+  checksum: 10c0/5f8bb01196e542e64d44db3d16ee0e4063ce4f3e3966df6005f2588e86d91c03e1fb131c2581baf0fb65ee79669eea6e161cd448178986587e9f6844446dbb48
   languageName: node
   linkType: hard
 
@@ -32152,13 +32307,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A~5.8.2#optional!builtin<compat/typescript>":
-  version: 5.8.2
-  resolution: "typescript@patch:typescript@npm%3A5.8.2#optional!builtin<compat/typescript>::version=5.8.2&hash=8c6c40"
+"typescript@patch:typescript@npm%3A~5.8.3#optional!builtin<compat/typescript>":
+  version: 5.8.3
+  resolution: "typescript@patch:typescript@npm%3A5.8.3#optional!builtin<compat/typescript>::version=5.8.3&hash=5786d5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/8a6cd29dfb59bd5a978407b93ae0edb530ee9376a5b95a42ad057a6f80ffb0c410489ccd6fe48d1d0dfad6e8adf5d62d3874bbd251f488ae30e11a1ce6dabd28
+  checksum: 10c0/39117e346ff8ebd87ae1510b3a77d5d92dae5a89bde588c747d25da5c146603a99c8ee588c7ef80faaf123d89ed46f6dbd918d534d641083177d5fac38b8a1cb
   languageName: node
   linkType: hard
 
